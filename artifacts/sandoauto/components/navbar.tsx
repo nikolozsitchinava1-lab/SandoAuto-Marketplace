@@ -13,10 +13,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-20 border-b border-deep-navy/15 bg-cream-gray text-deep-navy">
+    <header className="relative z-20 border-b border-deep-navy/15 bg-cream-gray text-deep-navy print:hidden">
       <div className="mx-auto flex min-h-[76px] max-w-[1440px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
         <a
           href="/"
+          data-testid="nav-home"
           aria-label="SandoAuto home"
           className="inline-flex min-w-fit items-center gap-2.5 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-green"
         >
@@ -36,6 +37,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              data-testid={`nav-${link.href.slice(1)}`}
               className="rounded-sm py-2 text-[12px] font-semibold text-deep-navy/80 transition-colors duration-150 hover:text-forest-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-forest-green"
             >
               {link.label}
@@ -46,6 +48,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="/cars"
+            data-testid="nav-search-cars"
             className="group inline-flex min-h-10 items-center gap-2 bg-forest-green px-4 text-[11px] font-bold tracking-[0.055em] text-cream-gray transition-colors duration-150 hover:bg-deep-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-green"
           >
             Search Verified Cars
@@ -59,6 +62,7 @@ export default function Navbar() {
         <button
           type="button"
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          data-testid="nav-mobile-toggle"
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
@@ -79,6 +83,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                data-testid={`mobile-nav-${link.href.slice(1)}`}
                 onClick={() => setMenuOpen(false)}
                 className="flex min-h-12 items-center justify-between border-b border-deep-navy/10 text-sm font-semibold text-deep-navy transition-colors duration-150 hover:text-forest-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-forest-green"
               >
@@ -88,6 +93,7 @@ export default function Navbar() {
             ))}
             <a
               href="/cars"
+              data-testid="mobile-nav-search"
               onClick={() => setMenuOpen(false)}
               className="mt-4 flex min-h-11 items-center justify-center gap-2 bg-forest-green px-4 text-[11px] font-bold tracking-[0.055em] text-cream-gray transition-colors duration-150 hover:bg-deep-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest-green"
             >

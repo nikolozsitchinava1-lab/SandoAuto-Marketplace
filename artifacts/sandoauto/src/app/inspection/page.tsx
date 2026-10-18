@@ -1,0 +1,12 @@
+import { ArrowRight, ClipboardCheck, FileSearch, ListChecks } from "lucide-react";
+import { PageShell } from "../../components/page-shell";
+
+export default function InspectionPage() {
+  return <PageShell><div className="mx-auto max-w-[1120px] px-5 pb-16 pt-10 sm:px-8 sm:pt-14 lg:px-12">
+    <p className="font-mono text-[9px] uppercase tracking-[.16em] text-forest-green">SandoAuto / Inspection information</p>
+    <div className="mt-4 grid gap-8 border-b border-deep-navy/20 pb-9 md:grid-cols-[1fr_.7fr] md:items-end"><div><h1 className="max-w-[650px] text-[38px] font-bold leading-[1.05] tracking-[-.06em] sm:text-[52px]">A vehicle report should tell you what was checked.</h1></div><p className="max-w-[420px] text-[12px] leading-6 text-deep-navy/70">SandoAuto listings present vehicle information alongside inspection scores, item-level results and notes from the supplied report.</p></div>
+    <section className="mt-8 grid gap-4 md:grid-cols-3">{[{ Icon: ClipboardCheck, no: "01", title: "Open a listing", text: "Review the available vehicle information, including year, mileage, engine and transmission." }, { Icon: ListChecks, no: "02", title: "Read the checks", text: "Compare the report score and each available inspection item, status and note." }, { Icon: FileSearch, no: "03", title: "Ask informed questions", text: "Use report details as a starting point and confirm what matters to you before a purchase." }].map(({ Icon, no, title, text }) => <article key={no} className="border border-deep-navy/15 bg-[#FBFAF7] p-5"><p className="font-mono text-[9px] tracking-[.14em] text-forest-green">{no} / PROCESS</p><Icon className="mt-6 h-5 w-5 text-forest-green" /><h2 className="mt-4 text-[14px] font-bold">{title}</h2><p className="mt-2 text-[11px] leading-5 text-deep-navy/65">{text}</p></article>)}</section>
+    <div className="mt-8 border-l-2 border-caution bg-caution/5 px-5 py-4"><h2 className="text-[11px] font-bold text-caution">Please note</h2><p className="mt-2 max-w-[820px] text-[11px] leading-5 text-deep-navy/65">Reports and vehicles shown in this preview may be sample/demo records. An inspection report is not a guarantee of future condition. Verify vehicle history, documentation and suitability independently.</p></div>
+    <a href="/cars" data-testid="inspection-browse-listings" className="mt-8 inline-flex min-h-11 items-center gap-3 bg-forest-green px-5 text-[11px] font-bold text-cream-gray hover:bg-deep-navy">Browse sample listings <ArrowRight className="h-4 w-4" /></a>
+  </div></PageShell>;
+}

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///home/runner/workspace/artifacts/sandoauto/src/app/providers.tsx"],"sourcesContent":["\"use client\";\n\nimport { QueryClient, QueryClientProvider } from \"@tanstack/react-query\";\nimport { useState } from \"react\";\n\nexport default function Providers({ children }: Readonly<{ children: React.ReactNode }>) {\n  const [client] = useState(() => new QueryClient({\n    defaultOptions: { queries: { staleTime: 30_000, retry: 1, refetchOnWindowFocus: false } },\n  }));\n  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;\n}\n"],"names":["Providers","children","client","defaultOptions","queries","staleTime","retry","refetchOnWindowFocus"],"mappings":";;;;;AAEA;AAAA;AACA;AAHA;;;;AAKe,SAASA,UAAU,EAAEC,QAAQ,EAA2C;IACrF,MAAM,CAACC,OAAO,GAAG,IAAA,kXAAQ,EAAC,IAAM,IAAI,sQAAW,CAAC;YAC9CC,gBAAgB;gBAAEC,SAAS;oBAAEC,WAAW;oBAAQC,OAAO;oBAAGC,sBAAsB;gBAAM;YAAE;QAC1F;IACA,qBAAO,+YAAC,8SAAmB;QAACL,QAAQA;kBAASD;;;;;;AAC/C"}}]
+}

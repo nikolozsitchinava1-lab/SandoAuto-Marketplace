@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Noto_Sans_Georgian } from "next/font/google";
 
 import "./globals.css";
+import Providers from "./providers";
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   subsets: ["georgian", "latin"],
@@ -34,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${notoSansGeorgian.variable} ${jetBrainsMono.variable} font-sans antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

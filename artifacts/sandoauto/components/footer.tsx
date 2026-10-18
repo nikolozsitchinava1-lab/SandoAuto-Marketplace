@@ -1,4 +1,4 @@
-import { Check, ShieldCheck } from 'lucide-react';
+import { Check, FileSearch } from 'lucide-react';
 
 const footerLinks = [
   { label: 'Browse cars', href: '/cars' },
@@ -8,12 +8,13 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-deep-navy text-cream-gray">
+    <footer className="bg-deep-navy text-cream-gray print:hidden">
       <div className="mx-auto max-w-[1440px] px-5 pb-6 pt-10 sm:px-8 sm:pt-12 lg:px-12">
         <div className="grid gap-9 border-b border-cream-gray/15 pb-9 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr] lg:gap-12">
           <div>
             <a
               href="/"
+              data-testid="footer-home"
               aria-label="SandoAuto home"
               className="inline-flex items-center gap-2.5 rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream-gray"
             >
@@ -23,20 +24,15 @@ export default function Footer() {
               <span className="text-[17px] font-bold leading-none tracking-[-0.045em]">SandoAuto</span>
             </a>
             <p className="mt-3 max-w-[240px] text-[12px] leading-5 text-cream-gray/65">
-              Trust through clarity.
+              Vehicle listings with inspection information.
               <br />
               Verified used cars in Georgia.
             </p>
           </div>
 
           <div>
-            <h2 className="font-mono text-[9px] font-medium uppercase tracking-[0.16em] text-cream-gray/45">
-              Inspection centre
-            </h2>
-            <p className="mt-3 text-[12px] font-semibold">Tbilisi, Georgia</p>
-            <p className="mt-1 max-w-[235px] text-[11px] leading-5 text-cream-gray/65">
-              I. Chavchavadze Avenue, N82
-            </p>
+            <h2 className="font-mono text-[9px] font-medium uppercase tracking-[0.16em] text-cream-gray/45">For buyers and sellers</h2>
+            <p className="mt-3 max-w-[235px] text-[11px] leading-5 text-cream-gray/65">Review vehicle details and report notes before making your decision.</p>
           </div>
 
           <div>
@@ -45,12 +41,12 @@ export default function Footer() {
             </h2>
             <div className="mt-3 flex flex-col gap-2.5">
               <span className="inline-flex items-center gap-2 text-[11px] text-cream-gray/75">
-                <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5 text-forest-green" />
-                Verified marketplace
+                <FileSearch aria-hidden="true" className="h-3.5 w-3.5 text-forest-green" />
+                Inspection report details
               </span>
               <span className="inline-flex items-center gap-2 text-[11px] text-cream-gray/75">
                 <Check aria-hidden="true" className="h-3.5 w-3.5 text-forest-green" />
-                200+ point inspection
+                Seller inspection requests
               </span>
             </div>
           </div>
@@ -61,6 +57,7 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
+                data-testid={`footer-${link.href.slice(1)}`}
                 className="transition-colors duration-150 hover:text-cream-gray focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream-gray"
               >
                 {link.label}
