@@ -1,0 +1,34 @@
+Act as a Senior Full-Stack Architect. I have attached 5 screenshots of the UI for "SandoAuto," a transparent, report-based used-car marketplace in Georgia. 
+
+Your task is to build a functional, highly stable MVP. 
+
+### 1. STRICT TECH STACK
+- Framework: Next.js (App Router)
+- Language: TypeScript (Strict typing for stability)
+- Styling: Tailwind CSS (Utility classes only, no custom CSS files)
+- Icons: Lucide React
+- Fonts: Use `next/font/google` to import "Noto Sans Georgian" (for UI/Headers) and "JetBrains Mono" (for data/numbers/labels).
+
+### 2. DESIGN & VIBE RULES (THE "ANTI-HYPE" DIRECTIVE)
+- Vibe: Factual, report-like, official, maximum utility.
+- Animations: NO page transitions, NO scroll-reveal animations, NO bouncy elements. The only acceptable transitions are standard, lightning-fast state changes (e.g., button hover backgrounds, input focus rings). 
+- Layout: 12-column grid. Ample whitespace (64px-96px padding between sections). Thin 1px slate borders (#1E293B) to separate sections, imitating an official document.
+
+### 3. COLOR PALETTE (Set these in tailwind.config.ts)
+- Background: #F6F4EF (Cream-gray)
+- Text/Headers/Borders: #0F1F3D (Deep navy)
+- Primary Actions/Buttons: #17794A (Forest green)
+- Status Accents (Use sparingly): #9A5B0F (Caution/Warning), #B3382C (Alert/Error)
+
+### 4. EXECUTION PLAN
+Do NOT attempt to build the entire application in a single file or a single turn. Follow this sequence exactly:
+
+**Phase 1: Foundation**
+Initialize the Next.js project with TypeScript and Tailwind. Set up the `tailwind.config.ts` with my exact colors. Configure the two Google Fonts in `layout.tsx`. 
+
+**Phase 2: The Shell**
+Build a universal `<Navbar />` and `<Footer />` as modular components. 
+- The Navbar should have a clean #0F1F3D text logo that says "SandoAuto", minimal navigation links, and a #17794A "Search Verified Cars" button.
+
+**Phase 3: Stop and Report**
+Once the Foundation and Shell are complete, stop and ask me to review the live preview. Do not proceed to build the Hero section, Search inputs, or the Inspection Report dashboard until I give you the green light.
